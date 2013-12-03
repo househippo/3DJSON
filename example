@@ -1,3 +1,8 @@
+
+//########################
+//######## 3DJSON ########
+//########################
+
 {
   "3djson~key":"123456789",
   
@@ -11,28 +16,39 @@
     "180~ItemName":"Gummy Bears"
 }
 
+var json = 3djson(123456789).json();
 
-var key = 3djson(123456789).key();
-
-    /*
-    *   key //output  123456789
-    */
+  /*
+   * json //output  
+    
+    {
+      "DocType":"Customer",
+      "Email":"test@test.com",
+      "DocType":"Transation",
+      "Amount":50.00,
+      "DocType":"Product",
+      "ItemName":"Gummy Bears"
+    }
+  */
 
 
 var face1 = 3djson(123456789).face(1);
 
     /*
-    *   face //output  {"DocType":"Customer","Email":"test@test.com"}
+     *   face1 //output  
+     *   {"DocType":"Customer","Email":"test@test.com"}
     */
 
 var face2A = 3djson(123456789).face(2);
 
     /*
-    *   face2A //output  {"DocType":"Transation","Amount":50.00}
+     *   face2A //output  
+     *   {"DocType":"Transation","Amount":50.00}
     */  
 
 var face2B = 3djson(123456789).face([90][]);
 
     /*
-    *   face2B //output  {"DocType":"Transation","Amount":50.00}
+     *   face2B //output
+     *   {"DocType":"Transation","Amount":50.00}
     */  
