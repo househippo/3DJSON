@@ -1,25 +1,19 @@
 /********* 3DJSON *********/
 
-{
-  "3djson~Key":"123456789",
-    "0,0~DocType":"Customer",
-    "0,0~Email":"test@test.com",
-    "0,0~ShippingAddress":{
-                            "0,0~Address1":"17 West Greenville",
-                            "0,0~Address2":"Apt 17",
-                            "0,0~City":"Beverlyhills",
-                            "0,0~State":"CA",
-                            "0,0~Postal":90210
-                          },
-
-    "90,0~DocType":"Transation",
-    "90,0~Amount":50.00,
+var jsonString = {
+                  "3djson~Key":"123456789",
+                  
+                  "0,0~DocType":"Customer",
+                  "0,0~Email":"test@test.com",
+                  
+                  "90,0~DocType":"Transation",
+                  "90,0~Amount":50.00,
   
-    "180,0~DocType":"Product",
-    "180,0~ItemName":"Gummy Bears"
-}
+                  "180,0~DocType":"Product",
+                  "180,0~ItemName":"Gummy Bears"
+                  }
 
-var json = 3djson(123456789).json();
+var json = 3djson(jsonString).dataLoad();
 
   /*
    * json //output  
@@ -39,8 +33,7 @@ var face1 = 3djson(123456789).face(1);
 
     /*
      *   face1 //output  
-     *   {"DocType":"Customer","Email":"test@test.com","ShippingAddress":{"Address1":"17 West Greenville",
-     *    "Address2":"Apt 17","City":"Beverlyhills","State":"CA","Postal":90210}}
+     *   {"DocType":"Customer","Email":"test@test.com"}
     */
 
 var face2A = 3djson(123456789).face(2);
