@@ -1,8 +1,7 @@
 /********* 3DJSON *********/
 
 {
-  "3djson~key":"123456789",
-  
+  "3djson~Key":"123456789",
     "0,0~DocType":"Customer",
     "0,0~Email":"test@test.com",
     "0,0~ShippingAddress":{
@@ -57,3 +56,4 @@ var face2B = 3djson(123456789).face([90][]);
      *   face2B //output
      *   {"DocType":"Transation","Amount":50.00}
     */  
+    
