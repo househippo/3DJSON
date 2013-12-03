@@ -1,6 +1,6 @@
 /********* 3DJSON *********/
 
-var jsonString = {
+var       3djson_obj = {
                   "3djson~Key":"123456789",
                   
                   "0,0~DocType":"Customer",
@@ -13,8 +13,9 @@ var jsonString = {
                   "180,0~ItemName":"Gummy Bears"
                   }
 
-var json = 3djson(jsonString).dataLoad();
 
+
+var json = 3djson_obj.3dJsonShow();
   /*
    * json //output  
     
@@ -29,21 +30,21 @@ var json = 3djson(jsonString).dataLoad();
   */
 
 
-var face1 = 3djson(123456789).face(1);
+var face1 = 3djson_obj.3dJsonFace(1);
 
     /*
      *   face1 //output  
      *   {"DocType":"Customer","Email":"test@test.com"}
     */
 
-var face2A = 3djson(123456789).face(2);
+var face2A = 3djson_obj.3dJsonFace(2);
 
     /*
      *   face2A //output  
      *   {"DocType":"Transation","Amount":50.00}
     */  
 
-var face2B = 3djson(123456789).face([90][]);
+var face2B = 3djson_obj.3dJsonFace([90][]);
 
     /*
      *   face2B //output
