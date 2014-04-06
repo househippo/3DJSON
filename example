@@ -19,7 +19,7 @@ var  3djson_obj = {
                   }
 
 
-var json = 3djson_obj.ThreeDShow();
+var json = 3djson_obj.threeDShow();
 // This outputs the 3DJSON with syntax removed.
 
   /*
@@ -37,7 +37,7 @@ var json = 3djson_obj.ThreeDShow();
 
 
 
-var face1 = 3djson_obj.3dJsonFace(1);
+var face1 = 3djson_obj.threeDFace(1);
 // This show the first face of the box.
 
     /*
@@ -49,7 +49,7 @@ var face1 = 3djson_obj.3dJsonFace(1);
       }
     
 
-var face2A = 3djson_obj.3dJsonFace(2);
+var face2A = 3djson_obj.threeDFace(2);
 // This show the second face of the box.
     /*
      *   face2A OUTPUT
@@ -59,7 +59,7 @@ var face2A = 3djson_obj.3dJsonFace(2);
      }
       
 
-var face2B = 3djson_obj.3dJsonFace([90,0]);
+var face2B = 3djson_obj.threeDFace([90,0]);
 // You can get to face 2 by with degress too
     /*
      *  face2B OUTPUT  
@@ -68,7 +68,7 @@ var face2B = 3djson_obj.3dJsonFace([90,0]);
       "Products":["Gummy Bears","Comic Books"]
      }
 
-var face2C = 3djson_obj.3dJsonFace([0,90]);
+var face2C = 3djson_obj.threeDFace([0,90]);
 // You boxes have tops too
     /*
      *    face2C OUTPUT
