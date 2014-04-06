@@ -1,53 +1,82 @@
 /********* 3DJSON *********/
 
-var       3djson_obj = {
-                  "3djson~Key":"123456789",
+// 3DJSON  put JSON on a BOX or SPHERE
+
+//SAMPLE
+var  3djson_obj = {
+
+                  "0,0~DocType":"Invoice",
+                  "0,0~Customer":"Rocky The Moose",
                   
-                  "0,0~DocType":"Customer",
-                  "0,0~Email":"test@test.com",
-                  
-                  "90,0~DocType":"Transation",
-                  "90,0~Amount":50.00,
+                  "90,0~Products":["Gummy Bears","Comic Books"],
   
-                  "180,0~DocType":"Product",
-                  "180,0~ItemName":"Gummy Bears"
+                  "180,0~PromoCode":"10 OFF",
+                  
+                  "270,0~Vender":"Abc Inc.",
+                  
+                  "0,90~DateCreated":"2010-11-21 17:45:22"
+                  
                   }
 
 
+var json = 3djson_obj.ThreeDShow();
+// This outputs the 3DJSON with syntax removed.
 
-var json = 3djson_obj.3dJsonShow();
   /*
    * json //output  
+   */
     
     {
-      "DocType":"Customer",
-      "Email":"test@test.com",
-      "DocType":"Transation",
-      "Amount":50.00,
-      "DocType":"Product",
-      "ItemName":"Gummy Bears"
-    }
-  */
+      "DocType":"Invoice",
+      "Customer":"Rocky The Moose",
+      "Products":["Gummy Bears","Comic Books"],
+      "PromoCode":"10 OFF",
+      "Vender":"Abc Inc.",
+      "DateCreated":"2010-11-21 17:45:22"
+     }
+
 
 
 var face1 = 3djson_obj.3dJsonFace(1);
+// This show the first face of the box.
 
     /*
      *   face1 //output  
-     *   {"DocType":"Customer","Email":"test@test.com"}
-    */
+     */
+     {
+      "DocType":"Invoice",
+      "Customer":"Rocky The Moose"
+      }
+    
 
 var face2A = 3djson_obj.3dJsonFace(2);
-
+// This show the second face of the box.
     /*
-     *   face2A //output  
-     *   {"DocType":"Transation","Amount":50.00}
-    */  
+     *   face2A OUTPUT
+     */   
+     {
+     "Products":["Gummy Bears","Comic Books"]
+     }
+      
 
-var face2B = 3djson_obj.3dJsonFace([90][]);
-
+var face2B = 3djson_obj.3dJsonFace([90,0]);
+// You can get to face 2 by with degress too
     /*
-     *   face2B //output
-     *   {"DocType":"Transation","Amount":50.00}
-    */  
+     *  face2B OUTPUT  
+     */
+     {
+      "Products":["Gummy Bears","Comic Books"]
+     }
+
+var face2C = 3djson_obj.3dJsonFace([0,90]);
+// You boxes have tops too
+    /*
+     *    face2C OUTPUT
+     */
+     {
+       "DateCreated":"2010-11-21 17:45:22"
+     }
+    
+    
+   
     
