@@ -1,21 +1,15 @@
-/********* 3DJSON *********/
+/********************************************* 3DJSON *********************************************/
 
 // 3DJSON  put JSON on a BOX or SPHERE
 
 //SAMPLE
 var  3djson_obj = {
-
                   "0,0~DocType":"Invoice",
                   "0,0~Customer":"Rocky The Moose",
-                  
                   "90,0~Products":["Gummy Bears","Comic Books"],
-  
                   "180,0~PromoCode":"10 OFF",
-                  
                   "270,0~Vender":"Abc Inc.",
-                  
                   "0,90~DateCreated":"2010-11-21 17:45:22"
-                  
                   }
 
 
@@ -37,11 +31,11 @@ var json = 3djson_obj.threeDShow();
 
 
 
-var face1 = 3djson_obj.threeDFace(1);
+var faceFace = 3djson_obj.threeDFace(1);
 // This show the first face of the box.
 
     /*
-     *   face1 //output  
+     *   faceFace //output  
      */
      {
       "DocType":"Invoice",
@@ -49,34 +43,30 @@ var face1 = 3djson_obj.threeDFace(1);
       }
     
 
-var face2A = 3djson_obj.threeDFace(2);
+var faceLeft1 = 3djson_obj.threeDFace(2);
 // This show the second face of the box.
     /*
-     *   face2A OUTPUT
+     *   faceFront OUTPUT
      */   
      {
      "Products":["Gummy Bears","Comic Books"]
      }
       
 
-var face2B = 3djson_obj.threeDFace([90,0]);
+var faceLeft2 = 3djson_obj.threeDFace([90,0]);
 // You can get to face 2 by with degress too
     /*
-     *  face2B OUTPUT  
+     *  faceLeft OUTPUT  
      */
      {
       "Products":["Gummy Bears","Comic Books"]
      }
 
-var face2C = 3djson_obj.threeDFace([0,90]);
+var faceTop = 3djson_obj.threeDFace([0,90]);
 // You boxes have tops too
     /*
-     *    face2C OUTPUT
+     *    faceTop OUTPUT
      */
      {
        "DateCreated":"2010-11-21 17:45:22"
      }
-    
-    
-   
-    
