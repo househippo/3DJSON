@@ -3,11 +3,6 @@
 
 Simple syntax system for three dimensional JSON object.
 
-Via CUBE or Sphere.
-
-
-/********************************************* 3DJSON *********************************************/
-
 3DJSON puts JSON on a BOX or SPHERE
 
 ```javascript
@@ -45,7 +40,7 @@ OUTPUT
      }
 ```
 
-FRONT - This show the first face of the box.
+FRONT - This shows the front face of the box.
 
 ```javascript
 var Front = JQuery.threeDShow(1);
@@ -95,10 +90,10 @@ OUTPUT
       "DateCreated":"2010-11-21 17:45:22"
       }
 ```     
- FACES 
- 1 = Front
- 2 = Left side of box
- 3 = Back side of box
- 4 = Right side of box
- 5 = Top of Box
- 6 = Bottom of Box
+FACES 
+  1 = Front
+  2 = Left side of box
+  3 = Back side of box
+  4 = Right side of box
+  5 = Top of Box
+  6 = Bottom of Box
