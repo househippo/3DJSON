@@ -66,10 +66,20 @@ var faceLeft2 = 3djson_obj.threeDFace([90,0]);
      }
 
 var faceTop = 3djson_obj.threeDFace([0,90]);
-// You boxes have tops too
+var faceTop = 3djson_obj.threeDFace(5);
+// Your boxes have tops too
     /*
      *    faceTop OUTPUT
      */
      {
        "DateCreated":"2010-11-21 17:45:22"
      }
+     
+     
+FACES
+ 1. Front
+ 2. Left side of box
+ 3. Back side of box
+ 4. Right side of box
+ 5. Top of Box
+ 6. Bottom of Box
