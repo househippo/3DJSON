@@ -113,6 +113,14 @@
 	 return threeDJson;
  	}
  	
+ 	$.threeDReplace = function(string,data){
+ 		
+ 	}
+ 	
+ 	$.threeDGet = function(query){
+ 		
+ 	}
+ 	
  	$.threeDInside = function(noInside){
  		//paper documents have a back side. In 3dJson to denote its on back side or Inside the box or sphere use negative
  		// Ex."-90,0~data":"data"  => face 2, inside of box or sphere
