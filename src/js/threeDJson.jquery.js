@@ -31,8 +31,8 @@
 
  	$.threeDRemove = function(){
  		//goes through JSON and removes 3DJSON prefex EX."-190,0~element":"data" => "element":"data"
- 		//needs more work to be usable on decimal numbers
- 		return jQuery.parseJSON(JSON.stringify(threeDJson).replace(/["]-?[\d]{1,3}[\/,]-?[\d]{1,3}[\/~]/g ,'"'));
+ 		//You can add decimal numbers up to 4th point  EX. 1.1234
+ 		return jQuery.parseJSON(JSON.stringify(threeDJson).replace(/["]-?[\d+.]{1,8}[\/,][\d+.]{1,8}[\/~]/g ,'"'));
  	}
 
  	$.threeDStringToArray = function(string){
