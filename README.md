@@ -11,6 +11,7 @@ Via CUBE or Sphere.
 // 3DJSON  put JSON on a BOX or SPHERE
 
 //SAMPLE
+```javascript
 var  json_obj = {
                  "0,0~DocType":"Invoice",
                  "0,0~Customer":"Rocky The Moose",
@@ -19,7 +20,7 @@ var  json_obj = {
                  "270,0~Vender":"Abc Inc.",
                  "0,90~DateCreated":"2010-11-21 17:45:22"
                  }
-
+```
 
 json_obj = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22"}';
 
