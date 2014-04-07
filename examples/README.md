@@ -1,5 +1,5 @@
 ```text
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../src/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="../src/js/threeDJson.jquery.js"></script>
 ```
 ```javascript
