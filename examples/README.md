@@ -1,4 +1,4 @@
-
+```javascript
 var  jsonData = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22"}';
 
 var threeDObj = $.threeDLoad(jsonData); //Put JSON string into 3DJSON interpreter
@@ -20,4 +20,4 @@ if(threeDObj){
 }else{
 	console.log('This is not JSON String or JS object');
 }
-
+```
