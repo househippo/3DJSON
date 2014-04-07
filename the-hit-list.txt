@@ -11,3 +11,6 @@ This is the list of items or function I want the library to have.
   Ex.  I was thinging that inside box data would be "private" or for not customer eyes. 
   
 4. I want face 1 or "0,0~" to have a backside but -0 or negative zero is bad math... let me think on that one.
+    !!!!Got IT... the Backside of face 1  is "-0,0~" = "360,0~' or face(-1). !!!!
+
+5. Add a Z to the 3DJSON Array Ex. [x,y,z]
