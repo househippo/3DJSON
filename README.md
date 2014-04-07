@@ -22,12 +22,18 @@ var  json_obj = {
 ```
 
 
+Loads the 3DJSON to be interpretered
 ```javascript
 jQuery.threeDLoad(json_obj);
 ```
 
 This outputs the 3DJSON with syntax removed.
 
+```javascript
+jQuery.threeDShow(true);
+```
+
+OUTPUT
 ```javascript  
     {
      "DocType":"Invoice",
@@ -39,57 +45,60 @@ This outputs the 3DJSON with syntax removed.
      }
 ```
 
+FRONT - This show the first face of the box.
+
 ```javascript
-var faceFace = JQuery.threeDShow(1);
+var Front = JQuery.threeDShow(1);
 ```
 
-This show the first face of the box.
-
+OUTPUT
 ```javascript
      {
       "DocType":"Invoice",
       "Customer":"Rocky The Moose"
       }
 ```    
+LEFT - This show the left face of the box.
 
 ```javascript
-var faceLeft1 = jQuery.threeDShow(2);
+var Left1 = jQuery.threeDShow(2);
 ```
 
-This show the second face of the box.
-
+OUTPUT
 ```javascript 
      {
       "Products":["Gummy Bears","Comic Books"]
       }
-```      
-```javascript
-var faceLeft2 = jQuery.threeDShow([90,0]);
-```
-
+```    
 You can get to face 2 by with degress too
 
+```javascript
+var Left2 = jQuery.threeDShow([90,0]);
+```
+
+OUTPUT
 ```javascript
      {
       "Products":["Gummy Bears","Comic Books"]
       }
 ```
+
+TOP - Boxes have tops too
 ```javascript
-var faceTop = jQuery.threeDShow([0,90]);
-var faceTop = jQuery.threeDShow(5);
+var Top1 = jQuery.threeDShow([0,90]);
+var Top2 = jQuery.threeDShow(5);
 ```
 
-Your boxes have tops too
-
+OUTPUT
 ```javascript
      {
       "DateCreated":"2010-11-21 17:45:22"
       }
 ```     
  FACES 
- 1. Front
- 2. Left side of box
- 3. Back side of box
- 4. Right side of box
- 5. Top of Box
- 6. Bottom of Box
+ 1 = Front
+ 2 = Left side of box
+ 3 = Back side of box
+ 4 = Right side of box
+ 5 = Top of Box
+ 6 = Bottom of Box
