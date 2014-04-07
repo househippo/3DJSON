@@ -6,7 +6,7 @@ Simple syntax system for three dimensional JSON object.
 3DJSON puts JSON on a BOX or SPHERE
 
 ```javascript
-var  json_obj = {
+var  json_obj =  {
                  "0,0~DocType":"Invoice",
                  "0,0~Customer":"Rocky The Moose",
                  "90,0~Products":["Gummy Bears","Comic Books"],
