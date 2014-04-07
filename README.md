@@ -23,7 +23,7 @@ var  json_obj = {
 
 
 ```javascript
-var json = jQuery.threeDLoad(json_obj);
+jQuery.threeDLoad(json_obj);
 ```
 
 This outputs the 3DJSON with syntax removed.
@@ -40,7 +40,7 @@ This outputs the 3DJSON with syntax removed.
 ```
 
 ```javascript
-var faceFace = 3djson_obj.threeDFace(1);
+var faceFace = JQuery.threeDFace(1);
 ```
 
 This show the first face of the box.
@@ -53,7 +53,7 @@ This show the first face of the box.
 ```    
 
 ```javascript
-var faceLeft1 = 3djson_obj.threeDFace(2);
+var faceLeft1 = jQuery.threeDFace(2);
 ```
 
 This show the second face of the box.
@@ -64,7 +64,7 @@ This show the second face of the box.
       }
 ```      
 ```javascript
-var faceLeft2 = 3djson_obj.threeDFace([90,0]);
+var faceLeft2 = jQuery.threeDFace([90,0]);
 ```
 
 You can get to face 2 by with degress too
@@ -75,8 +75,8 @@ You can get to face 2 by with degress too
       }
 ```
 ```javascript
-var faceTop = 3djson_obj.threeDFace([0,90]);
-var faceTop = 3djson_obj.threeDFace(5);
+var faceTop = jQuery.threeDFace([0,90]);
+var faceTop = jQuery.threeDFace(5);
 ```
 
 Your boxes have tops too
@@ -86,8 +86,7 @@ Your boxes have tops too
       "DateCreated":"2010-11-21 17:45:22"
       }
 ```     
-     
-FACES
+ FACES 
  1. Front
  2. Left side of box
  3. Back side of box
