@@ -1,0 +1,13 @@
+This is the list of items or function I want the library to have.
+
+1.fuzzy view data.
+ In the sphere 189,0~  vs 190,0~ are different faces , but I want to make function that will give fuzzyness so that it can return result by 
+ a certain amount of degrees of each other.
+ 
+2.Search all bay same element name but on different faces.
+  Ex.  "90,0~email":"aaa@test.com" and "180,0~email":"bbb@test.com" are on different faces but elements are the same.
+
+3.show only elements that are inside or outside the box/sphere.
+  Ex.  I was thinging that inside box data would be "private" or for not customer eyes. 
+  
+4. I want face 1 or "0,0~" to have a backside but -0 or negative zero is bad math... let me think on that one.
