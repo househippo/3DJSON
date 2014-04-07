@@ -1,0 +1,108 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<script type="text/javascript">
+//Extension to Jquery library
+(function($){
+ 	
+	var threeDJson = new Object();
+
+ 	$.threeDLoad = function(obj){
+ 		threeDJson = obj;	
+ 	}
+
+ 	$.threeDSplit = function(string){
+ 		var data = string.split('~');
+    	return data[1];
+ 	}
+
+ 	$.threeDSpilt_reg = function(string){
+ 		//goes through JSON and removes 3DJSON prefex
+ 		// "90,0~element":"data" => "element":"data"
+ 	}
+
+ 	$.threeDStringToArray = function(string){
+ 		//  '90,0' => [90,0]
+ 	 	if(typeof string !== 'undefined'){ 
+ 			//assumes it a string of '90,0'
+ 			var data = string.split('~');
+ 			if(data.length !== 2 || !jQuery.isNumeric(data[0]) || !jQuery.isNumeric(data[1]) ){
+ 				return false;
+ 			}else{
+ 				return data;
+ 			}
+ 	    }
+ 	    return false;
+ 	}
+
+ 	$.threeDArrayToString = function(array1){
+ 	 	// [90,0] => '90,0'
+ 	 	if(typeof array1 !== 'undefined' && array1.length === 2 && jQuery.isNumeric(array1[0]) &&jQuery.isNumeric(array1[1])){ 
+ 			var data = array1[0]+','+array1[1];
+ 			return data;
+ 	    }
+ 	    return false;
+ 	}
+
+ 	$.threeDAdd = function(face,element,value){
+	var face_add = '0,0~';
+	var obj = new Object();
+
+	 	if(typeof face !== 'undefined'){
+
+	 		// if you just pass a number as face
+	 		if(jQuery.isNumeric(face) && face <= 6 && face >= 1){
+
+	 			switch(face){
+	 			case 2: //left of box face
+	 			face_add = '90,0~';
+	 			break;	
+	 			case 3: //back of box face
+	 			face_add = '180,0~';
+	 			break;	
+	 			case 4: //right of box face
+	 			face_add = '270,0~';
+	 			break;	
+	 			case 5: //top of box face
+	 			face_add = '0,90~';
+	 			break;	
+	 			case 6: //bottom of box face
+	 			face_add = '0,270~';
+	 			break;		 				 				 			
+	 			default: //front of box face 
+	 			//'0,0~'	
+	 			}
+
+	 		}else{
+			// Pass a string or Array as face
+			//assumse it a string of '90,0'
+	 		//check if its array with two elements (Future)
+
+	 			if(jQuery.isArray(face)){
+
+	 				var array_to_string = $.threeDArrayToString(face);
+	 				if(array_to_string){
+	 					face_add =  array_to_string +'~';
+	 				}
+	 			}else{
+	 			face_add = face+'~';
+	 			}
+	 		}
+	 	}
+	 //obj[face_add+element] = value;
+	 threeDJson[face_add+element] = value;
+	 return threeDJson;
+ 	}
+
+}( jQuery ));
+
+
+
+var  test = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22"}';
+                                 
+var cake = jQuery.parseJSON(test);
+
+//var www = jQuery.threeDAdd(2,'test','water now');
+//var www = jQuery.threeDAdd([90,0],'test','water now');
+var threeDObj = jQuery.threeDLoad(cake);
+var www = jQuery.threeDAdd('90,0','test','water now');
+console.log(www);
+</script>
