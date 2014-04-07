@@ -40,7 +40,7 @@ This outputs the 3DJSON with syntax removed.
 ```
 
 ```javascript
-var faceFace = JQuery.threeDFace(1);
+var faceFace = JQuery.threeDShow(1);
 ```
 
 This show the first face of the box.
@@ -53,7 +53,7 @@ This show the first face of the box.
 ```    
 
 ```javascript
-var faceLeft1 = jQuery.threeDFace(2);
+var faceLeft1 = jQuery.threeDShow(2);
 ```
 
 This show the second face of the box.
@@ -64,7 +64,7 @@ This show the second face of the box.
       }
 ```      
 ```javascript
-var faceLeft2 = jQuery.threeDFace([90,0]);
+var faceLeft2 = jQuery.threeDShow([90,0]);
 ```
 
 You can get to face 2 by with degress too
@@ -75,8 +75,8 @@ You can get to face 2 by with degress too
       }
 ```
 ```javascript
-var faceTop = jQuery.threeDFace([0,90]);
-var faceTop = jQuery.threeDFace(5);
+var faceTop = jQuery.threeDShow([0,90]);
+var faceTop = jQuery.threeDShow(5);
 ```
 
 Your boxes have tops too
