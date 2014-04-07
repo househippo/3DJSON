@@ -71,7 +71,6 @@
 	 		// if you just pass a number as face
 	 		if(jQuery.isNumeric(face) && face <= 6 && face >= 1){
 
-
 	 			switch(face){
 	 			case 2: //left of box 
 	 			face_add = '90,0~';
@@ -87,7 +86,10 @@
 	 			break;	
 	 			case 6: //bottom of box 
 	 			face_add = '0,270~';
-	 			break;		 				 				 			
+	 			break;		 
+	 			case -1: //backside of front of box
+	 			face_add = '360,0~';	
+	 			break;
 	 			default: //front of box
 	 			//"0,0~data":"data"	
 	 			}
@@ -115,9 +117,6 @@
  		// Ex."-90,0~data":"data"  => face 2, inside of box or sphere
  		// ZERO problem you can not have -0 or negative zero ...  Thinking about the best way to solve this.
  		// I want face 1 or "0,0~data":"data" to have a back side
- 		
  	}
- 	
-
  	
 }( jQuery ));
