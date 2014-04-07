@@ -30,7 +30,7 @@ jQuery.threeDShow(true);
 
 OUTPUT
 ```javascript  
-    {
+     {
      "DocType":"Invoice",
      "Customer":"Rocky The Moose",
      "Products":["Gummy Bears","Comic Books"],
@@ -43,12 +43,12 @@ OUTPUT
 FRONT - This shows the front face of the box.
 
 ```javascript
-var Front = JQuery.threeDShow(1);
+var Front = JQuery.threeDGet(1);
 ```
 
 OUTPUT
 ```javascript
-     {
+      {
       "DocType":"Invoice",
       "Customer":"Rocky The Moose"
       }
@@ -56,37 +56,37 @@ OUTPUT
 LEFT - This show the left face of the box.
 
 ```javascript
-var Left1 = jQuery.threeDShow(2);
+var Left1 = jQuery.threeDGet(2);
 ```
 
 OUTPUT
 ```javascript 
-     {
+      {
       "Products":["Gummy Bears","Comic Books"]
       }
 ```    
 You can get to face 2 by with degress too
 
 ```javascript
-var Left2 = jQuery.threeDShow([90,0]);
+var Left2 = jQuery.threeDGet([90,0]);
 ```
 
 OUTPUT
 ```javascript
-     {
+      {
       "Products":["Gummy Bears","Comic Books"]
       }
 ```
 
 TOP - Boxes have tops too
 ```javascript
-var Top1 = jQuery.threeDShow([0,90]);
-var Top2 = jQuery.threeDShow(5);
+var Top1 = jQuery.threeDGet([0,90]);
+var Top2 = jQuery.threeDGet(5);
 ```
 
 OUTPUT
 ```javascript
-     {
+      {
       "DateCreated":"2010-11-21 17:45:22"
       }
 ```     
