@@ -67,30 +67,31 @@
  	}
 
  	$.threeDAdd = function(face,element,value){
-	var face_add = '0,0~'; // default on face 1
+	var face_add = '0,0~'; // Front of box
 	var obj = new Object();
 
 	 	if(typeof face !== 'undefined'){
 	 		// if you just pass a number as face
 	 		if(jQuery.isNumeric(face) && face <= 6 && face >= 1){
 
+
 	 			switch(face){
-	 			case 2: //left of box face 1
+	 			case 2: //left of box 
 	 			face_add = '90,0~';
 	 			break;	
-	 			case 3: //back of box face 1
+	 			case 3: //back of box 
 	 			face_add = '180,0~';
 	 			break;	
-	 			case 4: //right of box face 1
+	 			case 4: //right of box 
 	 			face_add = '270,0~';
 	 			break;	
-	 			case 5: //top of box face 1
+	 			case 5: //top of box 
 	 			face_add = '0,90~';
 	 			break;	
-	 			case 6: //bottom of box face 1
+	 			case 6: //bottom of box 
 	 			face_add = '0,270~';
 	 			break;		 				 				 			
-	 			default: //front = box face 1
+	 			default: //front of box
 	 			//"0,0~data":"data"	
 	 			}
 
