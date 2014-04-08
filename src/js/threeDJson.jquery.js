@@ -93,19 +93,19 @@
 	 			face_add = '360,0~';	
 	 			break;
 	 			case -2:
-	 			face_add = '-270,0~':
+	 			face_add = '-270,0~';
 	 			break;	
 	 			case -3:
-	 			face_add = '-180,0~':
+	 			face_add = '-180,0~';
 	 			break;	
 	 			case -4:
-	 			face_add = '-90,0~':
+	 			face_add = '-90,0~';
 	 			break;	
 	 			case -5:
-	 			face_add = '0,-90~':
+	 			face_add = '0,-90~';
 	 			break;	
 	 			case -6:
-	 			face_add = '0,-180~':
+	 			face_add = '0,-180~';
 	 			break;	
 	 			default: //front of box
 	 			//case 1:
