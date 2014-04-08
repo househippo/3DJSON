@@ -62,7 +62,7 @@
 
  	$.threeDCheckDegree = function(degree){
  		//check that its in the right range #NO number over 359 and under -359 please
- 		if(degree => -360 && degree <= 360){return true;}else{ return false;}
+ 		if(degree >= -360 && degree <= 360){return true;}else{ return false;}
  	}
 
  	$.threeDAdd = function(face,element,value){
