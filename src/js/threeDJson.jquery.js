@@ -19,8 +19,9 @@
  	}
  	$.threeDShow = function(remove){
  		//I show the whole JSON with & without Prefex.
-	 	if(typeof remove === 'undefined' || remove === false){ return threeDJson; }
-	 	if(remove === true){ return jQuery.threeDRemove(); }else{ return threeDJson;}
+	 	if(typeof remove === 'undefined' || remove === true){ return threeDJson; }
+	 	if(remove === false){ return jQuery.threeDRemove(); }
+	 	return threeDJson;
  	}
 
  	$.threeDSplit = function(string){
@@ -61,7 +62,7 @@
 
  	$.threeDCheckDegree = function(degree){
  		//check that its in the right range #NO number over 359 and under -359 please
- 		if(degree > -360 && degree < 360){return true;}else{ return false;}
+ 		if(degree => -360 && degree <= 360){return true;}else{ return false;}
  	}
 
  	$.threeDAdd = function(face,element,value){
@@ -91,7 +92,24 @@
 	 			case -1: //backside of front of box
 	 			face_add = '360,0~';	
 	 			break;
+	 			case -2:
+	 			face_add = '-270,0~':
+	 			break;	
+	 			case -3:
+	 			face_add = '-180,0~':
+	 			break;	
+	 			case -4:
+	 			face_add = '-90,0~':
+	 			break;	
+	 			case -5:
+	 			face_add = '0,-90~':
+	 			break;	
+	 			case -6:
+	 			face_add = '0,-180~':
+	 			break;	
 	 			default: //front of box
+	 			//case 1:
+	 			break;	
 	 			//"0,0~data":"data"	
 	 			}
 
@@ -117,8 +135,13 @@
  		
  	}
  	
- 	$.threeDGet = function(query){
- 		
+ 	$.threeDGetByFace = function(face){
+ 		if(typeof face === 'undefined' || (face < 1 && face > 6)){return false;}
+ 		var data = new Object();
+ 		jQuery.each(threeDJson,function(key,value){
+ 			console.log(key);
+ 		});
+	
  	}
  	
  	$.threeDInside = function(noInside){
