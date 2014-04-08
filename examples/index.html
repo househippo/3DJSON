@@ -3,6 +3,8 @@
 <script type="text/javascript">
 var  jsonData = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22"}';
 
+$(document).ready(function(){
+
 var threeDObj = $.threeDLoad(jsonData); //Put JSON string into 3DJSON interpreter
 
 if(threeDObj){
@@ -11,18 +13,49 @@ if(threeDObj){
 	var list = [1,2,3,4,5,6]
 	$.each(list,function(key,value){
 	    //www = jQuery.threeDAdd(2,'test','water now'); //Pass Face Number
-	    $.threeDAdd(value,'test-'+key,value);
+	    $.threeDAdd(value,'test-'+value,value);
 	   //www = jQuery.threeDAdd([90,0],'test','water now'); // Pass Array
 	    //www = jQuery.threeDAdd('90,0','test','water now'); //Pass String
 	});
 
-	console.log($.threeDShow()); //show full JSON
-	console.log($.threeDShow(false)); //show full JSON w/o 3DJSON prefix 
-	console.log($.threeDGet(1));
+	var full = $.threeDShow();
+	console.log(full); //show full JSON
+	$('#show1').val(JSON.stringify(full, null, '\t'));
+	var part = $.threeDShow(false);
+	console.log(part); //show full JSON w/o 3DJSON prefix 
+	$('#show2').val(JSON.stringify(part, null, '\t'));
+	var get1 = $.threeDGet(1);
+	console.log(get1);
+	$('#show3').val(JSON.stringify(get1, null, '\t'));
+	var get2 = $.threeDGet(2,false);
+	console.log(get2);
+	$('#show4').val(JSON.stringify(get2, null, '\t'));
+	var get3 = $.threeDGet(3);
+	console.log(get3);
+	$('#show5').val(JSON.stringify(get3, null, '\t'));
 
 
 }else{
 	console.log('This is not JSON String or JS object');
 }
 
+});
 </script>
+<html>
+<style>
+.box{
+	font-size: 14px;
+	float:left;
+	margin: 1px;
+}
+</style>
+<body>
+	<textarea class="box" style="height:310px; width:400px;" id="show1"></textarea>
+	<textarea class="box" style="height:310px; width:400px;" id="show2"></textarea>
+	<div>
+	<textarea class="box" style="height:100px; width:400px;" id="show3"></textarea>
+	<textarea class="box" style="height:110px; width:400px;" id="show4"></textarea>
+	<textarea class="box" style="height:100px; width:400px;" id="show5"></textarea>
+	</div>
+</body>
+</html>
