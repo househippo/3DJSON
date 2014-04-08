@@ -1,6 +1,5 @@
 (function($){
-	 //focusing on box first will do sphere later
- 	
+	 //focusing on box first will do sphere later 	
 	var threeDJson = new Object();
 
  	$.threeDLoad = function(obj){
@@ -8,15 +7,12 @@
 		if(typeof obj === 'object'){
 			threeDJson = obj;
 		}else{
-			try {
-     			var jsonObject = jQuery.parseJSON(obj);
-			} catch (e) {
-    			return false;
-			}
+			try { var jsonObject = jQuery.parseJSON(obj); }catch(e){return false;}
 		  	threeDJson = jsonObject;
 		  	return true;
 		}
  	}
+
  	$.threeDShow = function(remove){
  		//I show the whole JSON with & without Prefex.
 	 	if(typeof remove === 'undefined' || remove === true){ return threeDJson; }
@@ -27,7 +23,7 @@
  	$.threeDSplit = function(string){
  		//interna function to split prefex if you passed a string instead of Array
  		var data = string.split('~');
-    	return data[1];
+    		return data[1];
  	}
 
  	$.threeDRemove = function(){
@@ -47,7 +43,7 @@
  			}else{
  				return data;
  			}
- 	    }
+ 	    	}
  	    return false;
  	}
 
@@ -63,85 +59,106 @@
  	$.threeDCheckDegree = function(degree){
  		//check that its in the right range #NO number over 359 and under -359 please
  		if(degree >= -360 && degree <= 360){return true;}else{ return false;}
+ 		return true;
  	}
 
- 	$.threeDAdd = function(face,element,value){
-	var face_add = '0,0~'; // Front of box
+ 	$.threeDAdd = function(face,element,data){
+ 		if(typeof face === 'undefined' ){return false;}
+ 		if(typeof element === 'undefined' ){return false;}
+ 		if(typeof data === 'undefined' ){return false;}
+	var face_add = '0,0'; // Front of box
 	var obj = new Object();
 
 	 	if(typeof face !== 'undefined'){
 	 		// if you just pass a number as face
 	 		if(jQuery.isNumeric(face) && face <= 6 && face >= 1){
+	 			face_add = jQuery.threeDFaceId(face);
+	 		}else{
+			// Pass a string or Array as face
+	 		//check if its array has two elements (Future)
 
-	 			switch(face){
+	 			if(jQuery.isArray(face)){
+	 				var array_to_string = $.threeDArrayToString(face);
+	 				if(array_to_string){
+	 					face_add =  array_to_string;
+	 				}
+	 			}else{
+	 				face_add = face;
+	 			}
+	 		}
+	 	}
+	 threeDJson[face_add+'~'+element] = data;
+	 return threeDJson;
+ 	}
+ 	
+ 	$.threeDReplace = function(face,element,data){
+ 		if(typeof face === 'undefined' ){return false;}
+ 		if(typeof element === 'undefined' ){return false;}
+ 		if(typeof data === 'undefined' ){return false;}
+ 		var show_face = jQuery.threeDFaceId(face);
+
+ 		
+ 	}
+ 	
+ 	$.threeDGet = function(face,show_prefix){
+ 		var show = false;
+ 		if(typeof show_prefix === 'undefined' || show_prefix === true){show = true;}
+ 		if(typeof face === 'undefined' || (face < 1 && face > 6)){return false;}
+ 		var data = new Object();
+ 		jQuery.each(threeDJson,function(key,value){
+ 			var prefix = key.split('~');
+ 			var face_id = jQuery.threeDFaceId(face);
+ 			if(face_id === prefix[0]){ 
+ 				if(show){data[key] = value; }else{data[prefix[1]] = value; }
+ 			}
+ 		});
+ 	   return data;
+ 	}
+
+ 	$.threeDFaceId = function(face){
+ 		face_add = '0,0';
+ 			if(jQuery.isNumeric(face) && face <= 6 && face >= 1){
+	 			switch(parseInt(face)){
 	 			case 2: //left of box 
-	 			face_add = '90,0~';
+	 			face_add = '90,0';
 	 			break;	
 	 			case 3: //back of box 
-	 			face_add = '180,0~';
+	 			face_add = '180,0';
 	 			break;	
 	 			case 4: //right of box 
-	 			face_add = '270,0~';
+	 			face_add = '270,0';
 	 			break;	
 	 			case 5: //top of box 
-	 			face_add = '0,90~';
+	 			face_add = '0,90';
 	 			break;	
 	 			case 6: //bottom of box 
-	 			face_add = '0,270~';
+	 			face_add = '0,270';
 	 			break;		 
 	 			case -1: //backside of front of box
-	 			face_add = '360,0~';	
+	 			face_add = '360,0';	
 	 			break;
 	 			case -2:
-	 			face_add = '-270,0~';
+	 			face_add = '-270,0';
 	 			break;	
 	 			case -3:
-	 			face_add = '-180,0~';
+	 			face_add = '-180,0';
 	 			break;	
 	 			case -4:
-	 			face_add = '-90,0~';
+	 			face_add = '-90,0';
 	 			break;	
 	 			case -5:
-	 			face_add = '0,-90~';
+	 			face_add = '0,-90';
 	 			break;	
 	 			case -6:
-	 			face_add = '0,-180~';
+	 			face_add = '0,-180';
 	 			break;	
 	 			default: //front of box
 	 			//case 1:
 	 			break;	
 	 			//"0,0~data":"data"	
 	 			}
-
-	 		}else{
-			// Pass a string or Array as face
-	 		//check if its array with two elements (Future)
-
-	 			if(jQuery.isArray(face)){
-	 				var array_to_string = $.threeDArrayToString(face);
-	 				if(array_to_string){
-	 					face_add =  array_to_string +'~';
-	 				}
-	 			}else{
-	 				face_add = face+'~';
-	 			}
 	 		}
-	 	}
-	 threeDJson[face_add+element] = value;
-	 return threeDJson;
- 	}
- 	
- 	$.threeDReplace = function(string,data){
- 		
- 	}
- 	
- 	$.threeDGetByFace = function(face){
- 		if(typeof face === 'undefined' || (face < 1 && face > 6)){return false;}
- 		var data = new Object();
- 		jQuery.each(threeDJson,function(key,value){
- 			console.log(key);
- 		});
-	
+	 	return face_add;
  	}
  	
  	$.threeDInside = function(noInside){
@@ -150,5 +167,4 @@
  		// ZERO problem you can not have -0 or negative zero ...  Thinking about the best way to solve this.
  		// I want face 1 or "0,0~data":"data" to have a back side
  	}
- 	
-}( jQuery ));
+}(jQuery));
