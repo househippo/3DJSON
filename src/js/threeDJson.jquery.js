@@ -23,7 +23,7 @@
  	$.threeDSplit = function(string){
  		//interna function to split prefex if you passed a string instead of Array
  		var data = string.split('~');
-    		return data[1];
+    	return data[1];
  	}
 
  	$.threeDRemove = function(){
@@ -43,7 +43,7 @@
  			}else{
  				return data;
  			}
- 	    	}
+ 	    }
  	    return false;
  	}
 
@@ -112,7 +112,8 @@
  				if(show){data[key] = value; }else{data[prefix[1]] = value; }
  			}
  		});
- 	   return data;
+
+ 		return data;
  	}
 
  	$.threeDFaceId = function(face){
@@ -167,4 +168,5 @@
  		// ZERO problem you can not have -0 or negative zero ...  Thinking about the best way to solve this.
  		// I want face 1 or "0,0~data":"data" to have a back side
  	}
+ 	
 }(jQuery));
