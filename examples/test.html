@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script type="text/javascript" src="/3DJSON/src/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/3DJSON/src/js/threeDJson.jquery.js"></script>
+<script type="text/javascript">
+var  jsonData = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22","0,270~Notes":"this is on the bottom of box"}';
+
+$(document).ready(function(){
+    
+    var threeDObj = $.threeDLoad(jsonData); //Put JSON string into 3DJSON interpreter
+                    $.threeDDebug(true);
+    	var full = $.threeDShow(); //show full JSON
+	$('#show').val(JSON.stringify(full, null, '\t'));
+             
+        $( "#mousebox" ).mousemove(function( event ) {
+            var pageCoords = "( " + event.pageX + "°, " + (event.pageY - 8) + "° )";
+            //var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+            $( "span:first" ).text( "( X,Y ) : " + pageCoords );
+            //$( "span:last" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
+            var data_array = [event.pageX,(event.pageY - 8)];
+            //var test = $.threeDRange(30,data_array,true);
+            $('#show').val(JSON.stringify($.threeDRange(30,data_array), null, '\t'));
+
+          });
+    
+    });
+</script> 
+<style>
+  #mousebox {
+    width: 360px;
+    height: 360px;
+   /* 
+   margin: 10px 50px 10px 10px;
+   border: 2px groove;
+   
+   */ 
+   background: yellow;
+    
+    float: left;
+  }
+  .box{
+      height:310px; 
+      width:400px;
+      float:left;
+      font-size: 18px;
+      
+  }
+  
+    p {
+    margin: 0;
+    margin-left: 10px;
+    color: red;
+    width: 360px;
+    height: 120px;
+    padding-top: 70px;
+    float: left;
+    font-size: 24px;
+  }
+</style>    
+    </head>
+    <body>
+        <div id="mousebox"> 
+            <p>
+            <span>Move the mouse over the div.</span>
+            <span>&nbsp;</span>
+            </p>
+        </div>
+      <textarea class="box" id="show"></textarea>
+    </body>
+</html>

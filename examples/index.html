@@ -1,5 +1,6 @@
-<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="./js/threeDJson.jquery.js"></script>
+<html>
+<script type="text/javascript" src="/3DJSON/src/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/3DJSON/src/js/threeDJson.jquery.js"></script>
 <script type="text/javascript">
 var  jsonData = '{"0,0~DocType":"Invoice","0,0~Customer":"Rocky The Moose","90,0~Products":["Gummy Bears","Comic Books"],"180,0~PromoCode":"10 OFF","270,0~Vender":"Abc Inc.","0,90~DateCreated":"2010-11-21 17:45:22"}';
 
@@ -42,21 +43,19 @@ if(threeDObj){
 
 });
 </script>
-<html>
 <style>
 .box{
-	font-size: 14px;
+        font-size: 14px;
 	float:left;
 	margin: 1px;
+        background-color: snow;
 }
 </style>
 <body>
 	<textarea class="box" style="height:310px; width:400px;" id="show1"></textarea>
 	<textarea class="box" style="height:310px; width:400px;" id="show2"></textarea>
-
 	<textarea class="box" style="height:100px; width:400px;" id="show3"></textarea>
 	<textarea class="box" style="height:110px; width:400px;" id="show4"></textarea>
 	<textarea class="box" style="height:100px; width:400px;" id="show5"></textarea>
-
 </body>
 </html>

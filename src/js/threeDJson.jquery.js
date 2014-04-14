@@ -1,7 +1,8 @@
 (function($){
 	 //focusing on box first will do sphere later 	
 	var threeDJson = new Object();
-
+        var threeDErrors = false;
+        
  	$.threeDLoad = function(obj){
  		//Load a JS object or JSON String to begin.
 		if(typeof obj === 'object'){
@@ -12,6 +13,8 @@
 		  	return true;
 		}
  	}
+        
+        $.threeDDebug = function(debug_on){if(debug_on){threeDErrors = true;}}
 
  	$.threeDShow = function(remove){
  		//I show the whole JSON with & without Prefex.
@@ -96,8 +99,6 @@
  		if(typeof element === 'undefined' ){return false;}
  		if(typeof data === 'undefined' ){return false;}
  		var show_face = jQuery.threeDFaceId(face);
-
- 		
  	}
  	
  	$.threeDGet = function(face,show_prefix){
@@ -112,7 +113,6 @@
  				if(show){data[key] = value; }else{data[prefix[1]] = value; }
  			}
  		});
-
  		return data;
  	}
 
@@ -159,9 +159,42 @@
 	 			//"0,0~data":"data"	
 	 			}
 	 		}
+                if(threeDErrors){console.log("Debug FaceId: GIVEN: " + face + " TESTED: "+face_add)}
 	 	return face_add;
  	}
- 	
+                                // range       = degree you want to fudge
+                                // array_data  = data in  [x,y] or [x,y,z] from your input
+                                // show_prefix = return 3DJSON prefix 
+        $.threeDRange = function(range,array_data,show_prefix){
+
+ 		if(typeof show_prefix === 'undefined' || show_prefix === true){show_prefix = true;}else{show_prefix = false;}
+                     // X,Y,Z
+            var show = [0,0,0];
+             		if(typeof array_data === 'undefined' || !jQuery.isArray(array_data)){show = [0,0,0];}
+            var x_min = array_data[0] - range;
+            var x_max = array_data[0] + range;
+            var y_min = array_data[1] - range;
+            var y_max = array_data[1] + range;
+ 
+            if(threeDErrors){console.log("Debug RANGE: " + array_data+' x-min:'+x_min+' x-max:'+x_max+' y-min:'+y_min+' y-max'+y_max);}
+            
+             var data = new Object();
+ 		jQuery.each(threeDJson,function(key,value){
+ 			var prefix_full = key.split('~');
+                        var prefix = prefix_full[0].split(',');
+                        //x-range & y-range
+
+ 			if(prefix[0] <= x_max  &&  prefix[0] >= x_min && prefix[1] <= y_max  &&  prefix[1] >= y_min){ 
+ 				if(show_prefix){data[key] = value; }else{data[prefix_full[1]] = value; }
+                                if(threeDErrors){console.log("Debug RANGE: IN RANGE");}
+ 			}
+                      
+ 		});
+                
+             return data;
+        }
+        
+        
  	$.threeDInside = function(noInside){
  		//paper documents have a back side. In 3dJson to denote its on back side or Inside the box or sphere use negative
  		// Ex."-90,0~data":"data"  => face 2, inside of box or sphere
